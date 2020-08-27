@@ -20,6 +20,37 @@ a {
   text-decoration: none;
 }
 
+h2 {
+  display: block;
+  margin-bottom: 1rem;
+  position: relative;
+  width: auto;
+
+  &::before {
+    position: absolute;
+    display: block;
+    bottom: -0.33rem;
+    content: " ";
+    height: 6px;
+  }
+
+  &.red-line {
+    &::before {
+      border-bottom: 6px dashed lighten($red, 10%);
+      left: 0;
+      width: 48%;
+    }
+  }
+
+  &.green-line {
+    &::before {
+      border-bottom: 6px dashed lighten($blue, 10%);
+      right: 0;
+      width: 42%;
+    }
+  }
+}
+
 .red {
   color: $red;
 }
@@ -66,12 +97,6 @@ body {
     }
   }
 
-  @media screen and (max-width: 1670px) {
-    .infos {
-      display: none;
-    }
-  }
-
   /* PAGE */
   page {
     width: 21cm;
@@ -84,432 +109,30 @@ body {
     .header {
       display: flex;
       width: 21cm;
-      height: 3cm;
       align-items: center;
-      padding: 3rem;
+      padding: 1rem;
       position: relative;
+      justify-content: space-between;
 
-      /* HEADER - TOP ICONS */
-      .icons {
-        position: absolute;
-        width: 21cm;
-        left: 0;
-        top: 0;
-        display: flex;
-        align-items: flex-end;
-        flex-direction: row;
-        justify-content: flex-end;
-
-        div {
-          padding: 0.5rem 1rem;
-          display: flex;
-          align-items: center;
-
-          img {
-            height: 1.6rem;
-            display: inline-block;
-            position: relative;
-            bottom: -1px;
-            margin-right: 0.25rem;
-          }
-        }
+      img {
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
       }
 
-      /* HEADER - PROFILE PICTURE */
-      .profile-picture {
-        flex: 25% 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img {
-          width: 75%;
-          border-radius: 50%;
-          box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
-            0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-      }
-
-      /* HEADER - TEXT CONTENT */
-      .header-content {
-        margin-top: 0.5rem;
-        flex: 75% 0;
-
-        h1 {
-          font-size: 1.6rem;
-          font-weight: 400;
-
-          span {
-            font-weight: 600;
-          }
-        }
-
-        .subtitle {
-          margin-top: 0.5rem;
-          line-height: 1.1rem;
-
-          span {
-            font-weight: 600;
-            margin: 0 3px;
-            font-size: 1.1rem;
-          }
-        }
-
-        .proverb {
-          position: relative;
-          text-align: right;
-          width: auto;
-          opacity: 0.85;
-          margin-top: 0.5rem;
-          font-size: 0.85rem;
-        }
-      }
-    }
-
-    /* RESUME - CONTENT */
-    .content {
-      padding: 0.25rem 2rem;
-
-      h2 {
-        display: flex;
-        align-items: center;
-        position: relative;
-        margin-bottom: 0.25rem;
-
-        &::before {
-          position: absolute;
-          display: block;
-          left: 3rem;
-          bottom: -0.15rem;
-          content: " ";
-          height: 3px;
-        }
-
-        img {
-          height: 2.4rem;
-          margin-right: 0.5rem;
-        }
-      }
-
-      .experiences {
-        display: flex;
-        flex-direction: column;
-
-        .experience {
-          margin-top: 0.25rem;
-          margin-bottom: 0.25rem;
-          width: 100%;
-
-          .experience-heading {
-            display: flex;
-            flex-direction: row;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-
-            .title {
-              flex: 75% 0;
-
-              &::before {
-                border-bottom: 3px dashed lighten($yellow, 10%);
-                width: 37%;
-              }
-            }
-
-            .date {
-              flex: 25% 0;
-              text-align: right;
-
-              h3 {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-              }
-
-              img {
-                height: 1.6rem;
-              }
-            }
-          }
-
-          .experience-content {
-            display: flex;
-
-            .description {
-              flex: 50% 0;
-              opacity: 0.9;
-              padding-right: 1rem;
-
-              p {
-                margin-top: 0.75rem;
-              }
-            }
-
-            .achievements {
-              position: relative;
-              flex: 50% 0;
-              padding-left: 1rem;
-              opacity: 0.9;
-              z-index: 1;
-
-              p {
-                text-align: right;
-                padding-right: 1rem;
-                position: relative;
-                margin-top: 0.75rem;
-
-                &::after {
-                  display: block;
-                  position: absolute;
-                  right: 0;
-                  top: 50%;
-                  transform: translate(-50);
-                  height: 5px;
-                  width: 5px;
-                  border-radius: 50%;
-                  background-color: $red;
-                  content: " ";
-                }
-              }
-            }
-          }
-        }
-      }
-
-      section {
-        &:not(:first-child) {
-          margin-top: 1rem;
-        }
-
-        h2 {
-          margin-bottom: 1rem;
-
-          &.red-line {
-            &::before {
-              border-bottom: 3px dashed lighten($red, 10%);
-              width: 36.5%;
-            }
-          }
-
-          &.green-line {
-            &::before {
-              border-bottom: 3px dashed lighten($blue, 10%);
-              width: 14%;
-            }
-          }
-
-          &.yellow-line {
-            &::before {
-              border-bottom: 3px dashed lighten($yellow, 10%);
-              width: 37%;
-            }
-          }
-        }
-      }
-
-      /* PROFESSIONAL */
-      .professional {
-        margin-top: -1rem;
-
-        .legend {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          height: 2rem;
-          font-weight: bold;
-
-          .legend-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 33% 0;
-            text-align: center;
-            width: 100%;
-
-            svg {
-              position: relative;
-              width: 3rem;
-              fill: $red;
-              transform: rotate(-90deg);
-              top: -5px;
-            }
-
-            img {
-              width: 2rem;
-              margin-right: 0.25rem;
-            }
-          }
-        }
-
-        .freelancing {
-          background-color: transparent;
-          margin-bottom: 0 !important;
-
-          .description {
-            flex: 100% 0 !important;
-          }
-        }
-
-        .achievements {
-          &::before {
-            position: absolute;
-            display: block;
-            left: 0;
-            bottom: 0;
-            content: " ";
-            height: 80%;
-            top: 10%;
-            width: 3px;
-            border-left: 3px dashed lighten($red, 10%);
-          }
-        }
-      }
-
-      /* HOBBIES */
-      .hobbies {
-        .hobbies-list {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          opacity: 0.9;
-
-          .list {
-            p {
-              padding-left: 1rem;
-              margin-top: 0.5rem;
-              position: relative;
-
-              &.icon {
-                &::after {
-                  background-size: 16px;
-                  background-repeat: no-repeat;
-                  background-position: center;
-                  background-color: transparent !important;
-                  height: 22px;
-                  width: 22px;
-                }
-              }
-
-              &::after {
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                height: 5px;
-                width: 5px;
-                border-radius: 50%;
-                background-color: $yellow;
-                content: " ";
-              }
-
-              &.sport {
-                &::after {
-                  background-image: url("../images/icons/sun.svg");
-                }
-              }
-
-              &.movies {
-                &::after {
-                  background-image: url("../images/icons/film.svg");
-                }
-              }
-
-              &.books {
-                &::after {
-                  background-image: url("../images/icons/book.svg");
-                }
-              }
-
-              &.music {
-                &::after {
-                  background-image: url("../images/icons/music.svg");
-                }
-              }
-
-              img {
-                height: 1rem !important;
-              }
-            }
-          }
-        }
+      .receiver {
+        text-align: right;
       }
     }
   }
-}
 
-.separator {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 0.5rem;
-  margin: 4rem auto;
-  border-radius: 4px;
+  .content {
+    padding: 1rem;
 
-  &::before {
-    position: absolute;
-    display: block;
-    bottom: -1rem;
-    content: " ";
-    height: 3px;
-    border-bottom: 3px dashed lighten($red, 10%);
-    width: 5%;
-  }
-}
-
-/* SIDE PROJECTS PAGE */
-
-.second-page {
-  .side-projects {
     p {
-      margin-top: 1rem;
-    }
-
-    .experiences {
-      .experience {
-        .experience-heading {
-          display: flex;
-          align-items: center;
-
-          .title {
-            img {
-              margin-right: 0.5rem;
-            }
-          }
-
-          .date {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-
-            a {
-              margin-right: 0.5rem;
-              opacity: 0.8;
-              font-size: 0.8rem;
-            }
-          }
-
-          h3 {
-            display: flex;
-            align-items: center;
-          }
-        }
-
-        .achievements {
-          p {
-            &::after {
-              background-color: $blue !important;
-            }
-          }
-        }
-
-        img {
-          width: 32px;
-          height: 32px;
-        }
-
-        margin-top: 2rem;
+      &:not(:first-child) {
+        margin-top: 1rem;
       }
     }
   }
@@ -530,6 +153,13 @@ body {
   }
 
   .separator {
+    display: none;
+  }
+}
+
+/* Basic responsiveness for info box */
+@media screen and (max-width: 1670px) {
+  .infos {
     display: none;
   }
 }
