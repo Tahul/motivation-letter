@@ -1,15 +1,17 @@
 module.exports = {
   root: true,
-  extends: 'airbnb-base',
+  extends: "airbnb-base",
   env: {
     browser: true,
     node: true,
   },
   rules: {
-    'import/no-extraneous-dependencies': [
-      'error', {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
         devDependencies: true,
       },
     ],
+    quotes: "single",
   },
 };
