@@ -2,8 +2,11 @@
 
 :root {
   --red: #c98474;
-  --blue: #a7d2cb;
+  --light-red: #ce9082;
+  --blue: #b0d6d0;
+  --light-blue: #b0d6d0;
   --yellow: #f2d388;
+  --light-yellow: #f3d794;
   --text-color: #303952;
 }
 
@@ -38,7 +41,7 @@ h2 {
 
   &.red-line {
     &::before {
-      border-bottom: 6px dashed lighten(var(--red), 10%);
+      border-bottom: 6px dashed var(--light-red);
       left: 0;
       width: 48%;
     }
@@ -46,7 +49,7 @@ h2 {
 
   &.green-line {
     &::before {
-      border-bottom: 6px dashed lighten(var(--blue), 10%);
+      border-bottom: 6px dashed var(--light-blue);
       right: 0;
       width: 42%;
     }
